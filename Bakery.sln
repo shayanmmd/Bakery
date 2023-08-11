@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.33920.266
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{8FC6AF8A-78EC-454B-A801-A021EAFF7344}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E3E46986-4D07-4344-A0C0-D6E132659B25}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{23F44008-36AA-45C6-AE72-8E0763653FC8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DC8677D6-77E5-4A79-AB36-07EA6E82CF54}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2B471348-5DFA-495A-BA96-C238424CC027}"
@@ -17,17 +13,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{D88461E4-E064-4B3A-9A27-3416AEB8A333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Domain", "Bakery.Domain\Bakery.Domain.csproj", "{05E99517-2627-4DC2-8E5D-F4F2C5C7CC5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakery.Domain", "Bakery.Domain\Bakery.Domain.csproj", "{05E99517-2627-4DC2-8E5D-F4F2C5C7CC5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Application", "Bakery.Application\Bakery.Application.csproj", "{E469E21F-7CF6-4329-A8E9-FEC5B59EDF85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakery.Application", "Bakery.Application\Bakery.Application.csproj", "{E469E21F-7CF6-4329-A8E9-FEC5B59EDF85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Infrastructure", "Bakery.Infrastructure\Bakery.Infrastructure.csproj", "{BB3D3A2F-1940-424A-9350-86C996081510}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakery.Infrastructure", "Bakery.Infrastructure\Bakery.Infrastructure.csproj", "{BB3D3A2F-1940-424A-9350-86C996081510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Persistence", "Bakery.Persistence\Bakery.Persistence.csproj", "{8FE38221-E933-443F-9ECD-D0BA575CE78A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakery.Persistence", "Bakery.Persistence\Bakery.Persistence.csproj", "{8FE38221-E933-443F-9ECD-D0BA575CE78A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Api", "Bakery.Api\Bakery.Api.csproj", "{E057E905-B825-422F-9656-50F8A076BA0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakery.Api", "Bakery.Api\Bakery.Api.csproj", "{E057E905-B825-422F-9656-50F8A076BA0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.AspCore", "EndPoint.AspCore\EndPoint.AspCore.csproj", "{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndPoint.AspCore", "EndPoint.AspCore\EndPoint.AspCore.csproj", "{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{285857A2-A9CE-4A6D-907F-F26D116D5195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{CB20A214-EFF0-4FEF-88B2-B40A8B2C6DD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +59,10 @@ Global
 		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB20A214-EFF0-4FEF-88B2-B40A8B2C6DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB20A214-EFF0-4FEF-88B2-B40A8B2C6DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB20A214-EFF0-4FEF-88B2-B40A8B2C6DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB20A214-EFF0-4FEF-88B2-B40A8B2C6DD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +78,8 @@ Global
 		{8FE38221-E933-443F-9ECD-D0BA575CE78A} = {DC8677D6-77E5-4A79-AB36-07EA6E82CF54}
 		{E057E905-B825-422F-9656-50F8A076BA0E} = {D88461E4-E064-4B3A-9A27-3416AEB8A333}
 		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777} = {6161D86C-DFAE-4B9A-BEC6-C8FC8914540B}
+		{285857A2-A9CE-4A6D-907F-F26D116D5195} = {8FC6AF8A-78EC-454B-A801-A021EAFF7344}
+		{CB20A214-EFF0-4FEF-88B2-B40A8B2C6DD6} = {285857A2-A9CE-4A6D-907F-F26D116D5195}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36406B7A-C40E-4426-AA91-B59E7A1E5404}
