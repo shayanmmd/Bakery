@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Persistence", "Baker
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakery.Api", "Bakery.Api\Bakery.Api.csproj", "{E057E905-B825-422F-9656-50F8A076BA0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndPoint.AspCore", "EndPoint.AspCore\EndPoint.AspCore.csproj", "{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{E057E905-B825-422F-9656-50F8A076BA0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E057E905-B825-422F-9656-50F8A076BA0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E057E905-B825-422F-9656-50F8A076BA0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{BB3D3A2F-1940-424A-9350-86C996081510} = {DC8677D6-77E5-4A79-AB36-07EA6E82CF54}
 		{8FE38221-E933-443F-9ECD-D0BA575CE78A} = {DC8677D6-77E5-4A79-AB36-07EA6E82CF54}
 		{E057E905-B825-422F-9656-50F8A076BA0E} = {D88461E4-E064-4B3A-9A27-3416AEB8A333}
+		{36B6F7F3-9A8A-4286-AF73-0DC1E393F777} = {6161D86C-DFAE-4B9A-BEC6-C8FC8914540B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36406B7A-C40E-4426-AA91-B59E7A1E5404}
