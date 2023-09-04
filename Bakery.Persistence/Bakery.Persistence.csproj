@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bakery.Application\Bakery.Application.csproj" />
     <ProjectReference Include="..\Bakery.Domain\Bakery.Domain.csproj" />
   </ItemGroup>
 

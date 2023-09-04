@@ -1,4 +1,7 @@
-﻿using Bakery.Persistence.DbContexts;
+﻿using Bakery.Application.Contracts.Persistence;
+using Bakery.Domain.Entities;
+using Bakery.Persistence.DbContexts;
+using Bakery.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +21,8 @@ namespace Bakery.Persistence
             {
                 options.UseSqlServer(configuration.GetConnectionString("MainConnection"));
             });
+            services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+            services.AddScoped<IBakeryRepository, BakeryRepository>();
             return services;
         }
     }

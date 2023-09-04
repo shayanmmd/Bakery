@@ -13,10 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Bakery.Application\Bakery.Application.csproj" />
     <ProjectReference Include="..\Bakery.Persistence\Bakery.Persistence.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
