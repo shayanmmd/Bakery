@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Bakery.Persistence;
 
 namespace Bakery.Api
 {
@@ -28,6 +29,10 @@ namespace Bakery.Api
         {
 
             services.AddControllers();
+
+            services.ConfigurePersistenceServices(Configuration);
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Bakery.Api", Version = "v1" });
