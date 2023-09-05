@@ -1,5 +1,3 @@
-using Bakery.Api.Interfaces;
-using Bakery.Api.Model;
 using Bakery.Application;
 using Bakery.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -55,7 +53,7 @@ namespace Bakery.Api
                     IssuerSigningKey = new SymmetricSecurityKey(Key)
                 };
             });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
