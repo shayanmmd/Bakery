@@ -1,6 +1,7 @@
-﻿using Bakery.Application.Dtos.BakeryDto;
-using Bakery.Application.Feautures.Bakery.Request.Commands;
-using Bakery.Application.Feautures.Bakery.Request.Queries;
+﻿using Bakery.Application.Contracts.Persistence;
+using Bakery.Application.Dtos.UserDto;
+using Bakery.Application.Feautures.User.Request.Commands;
+using Bakery.Application.Feautures.User.Request.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,23 +13,24 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Bakery.Api.Controllers
-{    
+{
+    [Authorize(Roles ="Admin")]
     [ApiController]
-    public class BakeryController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public BakeryController(IMediator mediator)
+        public UserController(IMediator mediator)
         {
             _mediator = mediator;
         }
-        [Route("/Bakery/GetAll")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BakeryDto>>> GetAllBakeryAsync()
+        [Route("/User/GetAll")]
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUserAsync()
         {
             try
             {
-                var response = await _mediator.Send(new GetAllBakeryQueriesRequest());
+                var response = await _mediator.Send(new GetAllUserQueriesRequest());
                 return Ok(response);
             }
             catch
@@ -36,13 +38,13 @@ namespace Bakery.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-        [Route("/Bakery/GetOne")]
         [HttpGet]
-        public async Task<ActionResult<BakeryDto>> GetOneBakeryAsync([FromHeader] Guid guid)
+        [Route("/User/GetOne")]
+        public async Task<ActionResult<UserDto>> GetOneUserAsync()
         {
             try
             {
-                var response = await _mediator.Send(new GetBakeryQueriesRequest() { Guid = guid });
+                var response = await _mediator.Send(new GetUserQueriesRequest());
                 return Ok(response);
             }
             catch
@@ -50,14 +52,13 @@ namespace Bakery.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-        [Authorize(Roles = "Admin")]
-        [Route("/Bakery/Add")]
         [HttpPost]
-        public async Task<ActionResult<BaseResponse>> AddBakeryAsync([FromBody] BakeryDto bakeryDto)
+        [Route("/User/Add")]
+        public async Task<ActionResult<IEnumerable<UserDto>>> AddUserAsync([FromBody] UserDto userDto)
         {
             try
             {
-                var response = await _mediator.Send(new AddBakeryCommandsRequest() { Bakery = bakeryDto });
+                var response = await _mediator.Send(new AddUserCommandsRequest() { UserDto = userDto});
                 return Ok(response);
             }
             catch
@@ -65,14 +66,13 @@ namespace Bakery.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-        [Authorize(Roles = "Admin")]
-        [Route("/Bakery/Update")]
         [HttpPut]
-        public async Task<ActionResult<BaseResponse>> UpdateBakeryAsync([FromBody] BakeryDto bakeryDto)
+        [Route("/User/Update")]
+        public async Task<ActionResult<BaseResponse>> UpdateUserAsync([FromBody] UserDto userDto)
         {
             try
             {
-                var response = await _mediator.Send(new UpdateBakeryCommandsRequest() { Bakery = bakeryDto });
+                var response = await _mediator.Send(new UpdateUserCommandsRequest() { UserDto = userDto });
                 return Ok(response);
             }
             catch
@@ -80,14 +80,13 @@ namespace Bakery.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-        [Authorize(Roles = "Admin")]
-        [Route("/Bakery/Delete")]
         [HttpDelete]
-        public async Task<ActionResult<BaseResponse>> DeleteBakeryAsync([FromHeader] Guid guid)
+        [Route("/User/Delete")]
+        public async Task<ActionResult<BaseResponse>> DeleteUserAsync([FromHeader] Guid guid)
         {
             try
             {
-                var response = await _mediator.Send(new DeleteBakeryCommandsRequest() { Guid = guid });
+                var response = await _mediator.Send(new DeleteUserCommandsRequest() {Guid = guid });
                 return Ok(response);
             }
             catch

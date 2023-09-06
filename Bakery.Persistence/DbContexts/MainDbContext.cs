@@ -8,7 +8,7 @@ namespace Bakery.Persistence.DbContexts
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options) { }
 
         #region DbSets
-        DbSet<Customer> Customers { get; set; }
+        DbSet<User> Users { get; set; }
         DbSet<Order> Orders { get; set; }
         DbSet<Suggestion> Suggestions { get; set; }
         DbSet<Domain.Entities.Bakery> Bakeries { get; set; }
@@ -17,7 +17,7 @@ namespace Bakery.Persistence.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>().HasOne<Customer>(c=>c.Customer).WithMany(g=>g.Orders);
+            modelBuilder.Entity<Order>().HasOne<User>(c=>c.Customer).WithMany(g=>g.Orders);            
         }
     }
 }

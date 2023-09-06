@@ -17,7 +17,7 @@ namespace Bakery.Domain.Entities
         [Required]
         [ForeignKey(nameof(Customer))]
         public Guid FkCustomer { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual User Customer { get; set; }
         [Required]
         public bool Status { get; set; }
         [Required]

@@ -1,5 +1,9 @@
 using Bakery.Application;
+using Bakery.Application.Contracts.Identity;
+using Bakery.Application.Contracts.Persistence;
 using Bakery.Persistence;
+using Bakery.Persistence.Repositories;
+using Bakery.Persistence.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -52,8 +56,7 @@ namespace Bakery.Api
                     ValidAudience = Configuration["JWT:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Key)
                 };
-            });
-
+            });            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

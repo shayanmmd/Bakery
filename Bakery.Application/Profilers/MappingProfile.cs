@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Bakery.Application.Dtos.BakeryDto;
+using Bakery.Application.Dtos.UserDto;
+using Bakery.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace Bakery.Application.Profilers
         public MappingProfile()
         {
             CreateMap<BakeryDto, Domain.Entities.Bakery>().ReverseMap();
+            CreateMap<UserDto, User>().ReverseMap();
         }
     }
 }
