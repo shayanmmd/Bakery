@@ -22,6 +22,7 @@ namespace Bakery.Persistence
             services.AddScoped<IBakeryRepository, BakeryRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IAuthService, AuthService>();
             return services;
         }
     }

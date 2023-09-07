@@ -17,5 +17,10 @@ namespace Bakery.Persistence.Repositories
         {
             _mainDbContext = mainDbContext;
         }
+
+        public User FindByPhoneNumber(string phoneNumber)
+        {
+            return _mainDbContext.Set<User>().SingleOrDefault(x => x.PhoneNumber == phoneNumber);
+        }
     }
 }

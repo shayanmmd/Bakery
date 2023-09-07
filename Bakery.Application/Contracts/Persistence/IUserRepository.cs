@@ -9,5 +9,6 @@ namespace Bakery.Application.Contracts.Persistence
 {
     public interface IUserRepository : IGenericRepository<User>
     {
+        User FindByPhoneNumber(string phoneNumber);
     }
 }
