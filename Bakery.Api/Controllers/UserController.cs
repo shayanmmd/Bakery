@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MelyPayamak;
 
 namespace Bakery.Api.Controllers
 {
@@ -18,11 +19,14 @@ namespace Bakery.Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        
         private readonly IMediator _mediator;
+        
 
         public UserController(IMediator mediator)
         {
             _mediator = mediator;
+            
         }
         [HttpGet]
         [Route("/User/GetAll")]

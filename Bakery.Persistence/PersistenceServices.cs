@@ -1,5 +1,6 @@
 ﻿using Bakery.Application.Contracts.Identity;
 using Bakery.Application.Contracts.Persistence;
+using Bakery.Application.Contracts.Sms;
 using Bakery.Persistence.DbContexts;
 using Bakery.Persistence.Repositories;
 using Bakery.Persistence.Services;
@@ -23,6 +24,8 @@ namespace Bakery.Persistence
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ISmsService, SmsService>();
+            
             return services;
         }
     }

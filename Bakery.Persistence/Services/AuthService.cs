@@ -7,7 +7,10 @@ using Bakery.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Responses;
 using System.Linq;
+using Bakery.Application.Contracts.Sms;
 using MediatR;
+using MelyPayamak;
+using Shared.SMS;
 
 namespace Bakery.Persistence.Services
 {
@@ -15,33 +18,42 @@ namespace Bakery.Persistence.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IJwtManager _jwtManager;
+        
 
         public AuthService(IUserRepository userRepository, IJwtManager jwtManager)
         {
             _userRepository = userRepository;
             _jwtManager = jwtManager;
         }
-        public LoginResponseModel Login(string phoneNumber)
+        public async Task<LoginModel> LoginFirstStepAsync(string phoneNumber)
         {
             try
             {
                 var user = _userRepository.FindByPhoneNumber(phoneNumber);
                 if (user == null)
-                    return new LoginResponseModel() { IsSuccess = false, ErrorMessage = "کاربر یافت نشد باید در ابتدا ثبت نام کنید" };
+                    return new LoginModel() { IsSuccess = false, ErrorMessage = "کاربر یافت نشد باید در ابتدا ثبت نام کنید" };
+                return new LoginModel { IsSuccess = true ,Users = new Users(){UserName = user.UserName,PhoneNumber = user.PhoneNumber}};
+            }
+            catch
+            {
+                return new LoginModel(){IsSuccess = false , ErrorMessage = "خظای غیر منتظره ای رخ داده است در صورت تلاش چند باره مجدد و دریافت دوباره همین خطا با پشتیبانی تماس بگیرید" };
+            }
+        }
 
-                //TO DO SEND SMS
-
-                var tokens = _jwtManager.Authenticate(new Users() { UserName = user.UserName, PhoneNumber = user.PhoneNumber });
-                return new LoginResponseModel()
+        public async Task<LoginModel> LoginSecondStepAsync(Users user)
+        {
+            try
+            {
+                var tokens = _jwtManager.Authenticate(user);
+                return new LoginModel()
                 {
                     IsSuccess = true,
-                    Token = tokens.Token,
-                    refreshToken = tokens.Token
+                    Token = tokens.Token
                 };
             }
             catch
             {
-                return new LoginResponseModel()
+                return new LoginModel()
                 {
                     IsSuccess = false,
                     ErrorMessage = "خظای غیر منتظره ای رخ داده است در صورت تلاش چند باره مجدد و دریافت دوباره همین خطا با پشتیبانی تماس بگیرید"

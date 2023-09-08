@@ -11,7 +11,8 @@ namespace Bakery.Application.Contracts.Identity
 {
     public interface IAuthService
     {
-        LoginResponseModel Login(string phoneNumber);
+        Task<LoginModel> LoginFirstStepAsync(string phoneNumber);
+        Task<LoginModel> LoginSecondStepAsync(Users users);
         Task<BaseResponse> RegisterAsync(RegistrationRequestModel registrationRequestModel);
     }
 }

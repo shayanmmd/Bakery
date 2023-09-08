@@ -33,7 +33,7 @@ namespace Bakery.Persistence.Services
         }
         public Tokens Authenticate(Users users)
         {
-            if (!UsersRecords.Any(x => x.Key == users.UserName && x.Value == users.Password))
+            if (!UsersRecords.Any(x => x.Key == users.UserName && x.Value == users.PhoneNumber))
             {
                 return null;
             }
