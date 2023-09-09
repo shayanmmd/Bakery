@@ -1,4 +1,5 @@
-﻿using Shared.Enums;
+﻿using System.Text.Json.Serialization;
+using Shared.Enums;
 
 namespace Bakery.Application.Models
 {
@@ -6,6 +7,5 @@ namespace Bakery.Application.Models
     {
         public string UserName { get; set; }
         public string PhoneNumber { get; set; }
-        public Enums.RoleOfUsers Role { get; set; }
     }
 }
