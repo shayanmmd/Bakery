@@ -18,7 +18,7 @@ namespace Bakery.Persistence
             {
                 options.UseSqlServer(configuration.GetConnectionString("MainConnection"));
             });
-            services.AddSingleton<IJwtManager, JwtManager>();
+            services.AddScoped<IJwtManager, JwtManager>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IBakeryRepository, BakeryRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
