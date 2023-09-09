@@ -34,9 +34,9 @@ namespace Bakery.Api.Controllers
         }
         [HttpPost]
         [Route("/Auth/LoginSecondStep")]
-        public async Task<LoginModel> LoginSecondStepAsync([FromBody] Users users)
+        public async Task<LoginModel> LoginSecondStepAsync([FromHeader] string phoneNumber)
         {
-            return await _authService.LoginSecondStepAsync(users);
+            return await _authService.LoginSecondStepAsync(phoneNumber);
         }
     }
 }

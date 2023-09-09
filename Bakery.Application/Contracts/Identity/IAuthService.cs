@@ -12,7 +12,7 @@ namespace Bakery.Application.Contracts.Identity
     public interface IAuthService
     {
         Task<LoginModel> LoginFirstStepAsync(string phoneNumber);
-        Task<LoginModel> LoginSecondStepAsync(Users users);
+        Task<LoginModel> LoginSecondStepAsync(string phoneNumber);
         Task<BaseResponse> RegisterAsync(RegistrationRequestModel registrationRequestModel);
     }
 }

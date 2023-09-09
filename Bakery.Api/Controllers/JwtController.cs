@@ -17,9 +17,9 @@ namespace Bakery.Api.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("/authenticate")]
-        public IActionResult Authenticate(Users usersdata)
+        public IActionResult Authenticate([FromHeader] string phoneNumber)
         {
-            var token = _jwtManager.Authenticate(usersdata);
+            var token = _jwtManager.Authenticate(phoneNumber);
             if (token == null)
                 return Unauthorized();
             return Ok(token);

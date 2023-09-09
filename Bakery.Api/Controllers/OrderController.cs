@@ -1,23 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using Bakery.Application.Dtos.OrderDto;
+﻿using Bakery.Application.Dtos.OrderDto;
 using Bakery.Application.Feautures.Order.Request.Commands;
 using Bakery.Application.Feautures.Order.Request.Quesries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Shared.Responses;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Bakery.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -30,7 +26,6 @@ namespace Bakery.Api.Controllers
 
         [Route("/Order/Add")]
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<BaseResponse>> AddOrderAsync([FromBody] OrderDto orderDto)
         {
             try
@@ -46,7 +41,6 @@ namespace Bakery.Api.Controllers
 
         [HttpPut]
         [Route("/Order/Update")]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<BaseResponse>> UpdateOrderAsync([FromBody] OrderDto orderDto)
         {
             try
@@ -61,7 +55,6 @@ namespace Bakery.Api.Controllers
         }
         [HttpDelete]
         [Route("/Order/Delete")]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<BaseResponse>> DeleteOrderAsync([FromHeader] Guid guid)
         {
             try

@@ -1,4 +1,6 @@
-﻿namespace Bakery.Application.Models
+﻿using Shared.Enums;
+
+namespace Bakery.Application.Models
 {
     public class Users
     {

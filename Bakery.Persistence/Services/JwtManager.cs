@@ -11,50 +11,39 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using Bakery.Application.Contracts.Persistence;
 
 namespace Bakery.Persistence.Services
 {
     public class JwtManager : IJwtManager
     {
-        Dictionary<string, string> UsersRecords = new Dictionary<string, string>
-    {
-        { "s","s"},
-        { "user2","password2"},
-        { "user3","password3"},
-    };
-
         private readonly IConfiguration _iconfiguration;
+        private readonly IUserRepository _userRepository;
 
-
-        public JwtManager(IConfiguration iconfiguration)
+        public JwtManager(IConfiguration iconfiguration, IUserRepository userRepository)
         {
             _iconfiguration = iconfiguration;
-
+            _userRepository = userRepository;
         }
-        public Tokens Authenticate(Users users)
+        public Tokens Authenticate(string phoneNumber)
         {
-            if (!UsersRecords.Any(x => x.Key == users.UserName && x.Value == users.PhoneNumber))
-            {
+            var user = _userRepository.FindByPhoneNumber(phoneNumber);
+            if (user == null)
                 return null;
-            }
-
-
-            // Else we generate JSON Web Token
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(_iconfiguration["JWT:Key"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                     new Claim(ClaimTypes.Name, users.UserName),
-                     new Claim(ClaimTypes.Role,Enums.RoleOfUsers.Admin.ToString())
+                     new Claim(ClaimTypes.Role,((Enums.RoleOfUsers)user.Role).ToString())
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(5),
+                Expires = DateTime.UtcNow.AddDays(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return new Tokens { Token = tokenHandler.WriteToken(token) };
-            
+
         }
     }
 }

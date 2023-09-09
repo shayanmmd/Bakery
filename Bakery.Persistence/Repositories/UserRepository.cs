@@ -22,5 +22,6 @@ namespace Bakery.Persistence.Repositories
         {
             return _mainDbContext.Set<User>().SingleOrDefault(x => x.PhoneNumber == phoneNumber);
         }
+       
     }
 }

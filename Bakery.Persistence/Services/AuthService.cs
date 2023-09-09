@@ -18,7 +18,7 @@ namespace Bakery.Persistence.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IJwtManager _jwtManager;
-        
+
 
         public AuthService(IUserRepository userRepository, IJwtManager jwtManager)
         {
@@ -31,20 +31,30 @@ namespace Bakery.Persistence.Services
             {
                 var user = _userRepository.FindByPhoneNumber(phoneNumber);
                 if (user == null)
-                    return new LoginModel() { IsSuccess = false, ErrorMessage = "کاربر یافت نشد باید در ابتدا ثبت نام کنید" };
-                return new LoginModel { IsSuccess = true ,Users = new Users(){UserName = user.UserName,PhoneNumber = user.PhoneNumber}};
+                    return new LoginModel()
+                    {
+                        IsSuccess = false,
+                        ErrorMessage = "کاربر یافت نشد باید در ابتدا ثبت نام کنید"
+                    };
+                return new LoginModel { IsSuccess = true, PhoneNumber = phoneNumber };
             }
             catch
             {
-                return new LoginModel(){IsSuccess = false , ErrorMessage = "خظای غیر منتظره ای رخ داده است در صورت تلاش چند باره مجدد و دریافت دوباره همین خطا با پشتیبانی تماس بگیرید" };
+                return new LoginModel() { IsSuccess = false, ErrorMessage = "خظای غیر منتظره ای رخ داده است در صورت تلاش چند باره مجدد و دریافت دوباره همین خطا با پشتیبانی تماس بگیرید" };
             }
         }
 
-        public async Task<LoginModel> LoginSecondStepAsync(Users user)
+        public async Task<LoginModel> LoginSecondStepAsync(string phoneNumber)
         {
             try
             {
-                var tokens = _jwtManager.Authenticate(user);
+                var tokens = _jwtManager.Authenticate(phoneNumber);
+                if (tokens == null)
+                    return new LoginModel()
+                    {
+                        IsSuccess = false,
+                        ErrorMessage = "کاربری با این شماره همراه یافت نشد"
+                    };
                 return new LoginModel()
                 {
                     IsSuccess = true,
