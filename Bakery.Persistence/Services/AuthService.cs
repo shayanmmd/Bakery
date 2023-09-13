@@ -1,17 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using Bakery.Application.Contracts.Identity;
+﻿using Bakery.Application.Contracts.Identity;
 using Bakery.Application.Contracts.Persistence;
 using Bakery.Application.Models;
 using Bakery.Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
-using Shared.Responses;
-using System.Linq;
-using Bakery.Application.Contracts.Sms;
-using MediatR;
-using MelyPayamak;
 using Shared.Enums;
-using Shared.SMS;
+using Shared.Responses;
+using System;
+using System.Threading.Tasks;
 
 namespace Bakery.Persistence.Services
 {
@@ -80,7 +74,7 @@ namespace Bakery.Persistence.Services
                 {
                     Guid = Guid.NewGuid(),
                     PhoneNumber = registrationRequestModel.PhoneNumber,
-                    Role =(short)Enums.RoleOfUsers.Customer,
+                    Role = (short)Enums.RoleOfUsers.Customer,
                     SignedInDateTime = DateTime.Now,
                     Status = true,
                     UserName = registrationRequestModel.UserName

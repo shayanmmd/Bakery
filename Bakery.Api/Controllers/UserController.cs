@@ -15,7 +15,7 @@ using MelyPayamak;
 
 namespace Bakery.Api.Controllers
 {
-    [Authorize(Roles ="Admin")]
+
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -58,6 +58,7 @@ namespace Bakery.Api.Controllers
         }
         [HttpPost]
         [Route("/User/Add")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<UserDto>>> AddUserAsync([FromBody] UserDto userDto)
         {
             try
@@ -72,6 +73,7 @@ namespace Bakery.Api.Controllers
         }
         [HttpPut]
         [Route("/User/Update")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<BaseResponse>> UpdateUserAsync([FromBody] UserDto userDto)
         {
             try
@@ -86,6 +88,7 @@ namespace Bakery.Api.Controllers
         }
         [HttpDelete]
         [Route("/User/Delete")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<BaseResponse>> DeleteUserAsync([FromHeader] Guid guid)
         {
             try

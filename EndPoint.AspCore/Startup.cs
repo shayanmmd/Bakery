@@ -1,3 +1,7 @@
+using System;
+using EndPoint.AspCore.Contracts;
+using EndPoint.AspCore.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +23,17 @@ namespace EndPoint.AspCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddHttpClient("Client",options =>
+            {
+                options.BaseAddress = new Uri(Configuration.GetSection("ApiAddress").Value);
+            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                options.LoginPath = "/Auth/Login";
+                options.LogoutPath = "/Auth/LogOut";
+                options.Cookie.Name = "Auth.Coo";
+            });
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,7 +51,7 @@ namespace EndPoint.AspCore
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();

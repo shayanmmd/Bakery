@@ -69,7 +69,7 @@ namespace Bakery.Api.Controllers
         }
         [HttpPost]
         [Route("/Order/GetAll")]
-        public async Task<ActionResult<IEnumerable<OrderDto>>> GetAllOrderAsync([FromHeader] string token)
+        public async Task<ActionResult<IEnumerable<OrderDto>>> GetAllOrderAsync()
         {
             try
             {
