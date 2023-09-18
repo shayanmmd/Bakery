@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <h2>فرم ورود</h2>
+    <form id="loginForm" method="post">
+      <label for="phone">شماره موبایل <div class="mobile-solid icon"></div></label>
+<input type="text" id="phone" name="phone" required pattern="[0-9]{11}" title="لطفاً شماره همراه 11 رقمی معتبر وارد کنید" placeholder="09*********">
+<label for="phone" class="error-message"></label>
+
+      <label for="username">نام کاربری <div class="profile-solid icon"></div></label>
+      <input type="text" id="username" name="username" required placeholder="امیرعلی">
+      <label for="username" class="error-message"></label>
+
+      <input type="submit" value="ورود">
+    </form>
+    <div class="additional-options">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
