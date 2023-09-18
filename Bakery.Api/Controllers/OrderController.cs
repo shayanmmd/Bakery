@@ -67,7 +67,7 @@ namespace Bakery.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-        [HttpPost]
+        [HttpGet]
         [Route("/Order/GetAll")]
         public async Task<ActionResult<IEnumerable<OrderDto>>> GetAllOrderAsync()
         {
@@ -81,7 +81,7 @@ namespace Bakery.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-        [HttpPost]
+        [HttpGet]
         [Route("/Order/GetOne")]
         public async Task<ActionResult<OrderDto>> GetOneOrderAsync([FromHeader] Guid guid)
         {
