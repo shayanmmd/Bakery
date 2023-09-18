@@ -1,156 +1,175 @@
 .container {
-  width: 300px;
-  margin: 130px auto;
-  padding: 28px;
-  background-color: rgb(255, 255, 255);
-  border: 2px solid #f1f0f1;
-  border-radius: 23px;
-  text-align: right;
-  font-family: 'Tahoma', sans-serif;
-  max-width: 100%;
-}
+    width: 300px;
+    margin: 130px auto;
+    padding: 28px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #f1f0f1;
+    border-radius: 23px;
+    text-align: right;
+    font-family: 'Tahoma', sans-serif;
+    max-width: 100%;
+  }
+  
+  
+  body {
+    background: linear-gradient(to right, #14b814, #51ff00);
+  }
+  
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  form {
+    margin-top: 38px;
+  }
+  
+  label {
+    display: inline-block ;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 92%;
+    padding: 10px;
+    background-color: rgba(216, 213, 216, 0.658);
+    border: 2px solid #f3f0f1;
+    border-radius: 20px;
+    font-size: 15px;
+    margin-top: 2px;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"]#phone {
+    padding-right: 15px;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    color: #f7f4f4;
+    background-color: #17e017;
+    border: 2px solid #f0eeee;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: rgb(247, 14, 227);
+  }
+  
+  .additional-options {
+    margin-top: 23px;
+    text-align: center;
+  }
+  
+  .additional-options a {
+    display: inline-block;
+    margin: 8px;
+    color: #e61414;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  .additional-options a:hover {
+    text-decoration: underline;
+    color: #ee18b8;
+  }
 
 
-body {
-  background: linear-gradient(to right, #14b814, #51ff00);
-}
-
-h2 {
-  font-size: 20px;
-  text-align: center;
-}
-
-form {
-  margin-top: 38px;
-}
-
-label {
-  display: inline-block ;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-input[type="text"] {
-  width: 92%;
-  padding: 10px;
-  background-color: rgba(216, 213, 216, 0.658);
-  border: 2px solid #e6e2e3;
-  border-radius: 20px;
-  font-size: 15px;
-  margin-top: 2px;
-  margin-bottom: 8px;
-}
-
-input[type="text"]#phone {
-  padding-right: 15px;
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  color: #f7f4f4;
-  background-color: #17e017;
-  border: 2px solid #ececec;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 17px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-input[type="submit"]:hover {
-  background-color: rgb(247, 14, 227);
-}
-
-.additional-options {
-  margin-top: 23px;
-  text-align: center;
-}
-
-.additional-options a {
-  display: inline-block;
-  margin: 8px;
-  color: #e61414;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.additional-options a:hover {
-  text-decoration: underline;
-  color: #ee18b8;
-}
-
-input.error {
-  border-color: rgb(240, 22, 22);
-}
-
-.error-message {
-  display: block;
-  color: red;
-  font-size: 12px;
-}
-
-.profile-solid.icon {
-  color: #000;
-  position: absolute;
-  margin-left: 45px;
-  margin-top: 33px;
-  width: 14px;
-  height: 6px;
-  border-left: solid 1px currentColor;
-  border-right: solid 1px currentColor;
-  border-top: solid 1px currentColor;
-  border-bottom: solid 1px transparent;
-  background-color: currentColor;
-  border-radius: 6px 6px 0 0;
-}
-
-.profile-solid.icon:before {
-  content: '';
-  position: absolute;
-  left: 2px;
-  top: -10px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: solid 1px currentColor;
-  background-color: currentColor;
-}
-
-.mobile-solid.icon {
-  color: #000;
-  position: absolute;
-  margin-left: 70px;
-  margin-top: 22px;
-  width: 12px;
-  height: 14px;
-  border-radius: 2px;
-  border-left: solid 1px currentColor;
-  border-right: solid 1px currentColor;
-  border-top: solid 3px currentColor;
-  border-bottom: solid 4px currentColor;
-}
-
-.mobile-solid.icon:before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  top: 3px;
-  width: 8px;
-  height: 0px;
-  color: #f7f1f1;
-  background-color: currentColor;
-  border-radius: 5px 0 0 5px;
-}
-
-.mobile-solid.icon:after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 5px;
-  height: 2px;
-  width: 2px;
-  border-radius: 50%;
-  color: white;
-  background-color: currentColor;
-}
+  .additional-options {
+    margin-top: 23px;
+    text-align: center;
+  }
+  
+  .additional-options a {
+    display: inline-block;
+    margin: 8px;
+    color: #6e6b6b;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  .additional-options a:hover {
+    text-decoration: underline;
+    color: #ec1098;
+  }
+  
+  input.error {
+    border-color: rgb(240, 22, 22);
+  }
+  
+  .error-message {
+    display: block;
+    color: red;
+    font-size: 12px;
+  }
+  
+  .profile-solid.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 45px;
+    margin-top: 33px;
+    width: 14px;
+    height: 6px;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    border-top: solid 1px currentColor;
+    border-bottom: solid 1px transparent;
+    background-color: currentColor;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .profile-solid.icon:before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+    background-color: currentColor;
+  }
+  
+  .mobile-solid.icon {
+    color: #000;
+    position: absolute;
+    margin-left: 70px;
+    margin-top: 22px;
+    width: 12px;
+    height: 14px;
+    border-radius: 2px;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    border-top: solid 3px currentColor;
+    border-bottom: solid 4px currentColor;
+  }
+  
+  .mobile-solid.icon:before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    width: 8px;
+    height: 0px;
+    color: #f7f1f1;
+    background-color: currentColor;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .mobile-solid.icon:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 5px;
+    height: 2px;
+    width: 2px;
+    border-radius: 50%;
+    color: white;
+    background-color: currentColor;
+  }
