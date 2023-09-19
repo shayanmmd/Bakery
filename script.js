@@ -1,35 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("loginForm");
-    const phoneInput = document.getElementById("phone");
-    const usernameInput = document.getElementById("username");
-    const submitButton = document.querySelector('input[type="submit"]');
+function typeText(element, text, speed) {
+    let index = 0;
+    const timer = setInterval(() => {
+      element.textContent += text.charAt(index);
+      index++;
+      if (index === text.length) {
+        clearInterval(timer);
+      }
+    }, speed);
+  }
   
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      form.reportValidity();
-    });
+  const typedTextElement = document.getElementById("typed-text");
+  const startButton = document.getElementById("start-button");
   
-    submitButton.addEventListener("click", function() {
-      form.reportValidity();
-    });
+  const text = "برای اینکه نوبت بگیری روی گزینه 'بزن بریم' کلیک کن";
+  typeText(typedTextElement, text, 100); // Adjust the speed by changing the value (in milliseconds)
   
-    phoneInput.addEventListener("invalid", function() {
-      const errorMessage = document.querySelector('label[for="phone"].error-message');
-      errorMessage.innerText = ".شماره موبایل نامعتبر میباشد";
-    });
-  
-    phoneInput.addEventListener("input", function() {
-      const errorMessage = document.querySelector('label[for="phone"].error-message');
-      errorMessage.innerText = "";
-    });
-  
-    usernameInput.addEventListener("invalid", function() {
-      const errorMessage = document.querySelector('label[for="username"].error-message');
-      errorMessage.innerText = ".لطفاً یک نام کاربری انتخاب کنید";
-    });
-  
-    usernameInput.addEventListener("input", function() {
-      const errorMessage = document.querySelector('label[for="username"].error-message');
-      errorMessage.innerText = "";
-    });
+  startButton.addEventListener("click", () => {
+    console.log("Button clicked!");
   });
