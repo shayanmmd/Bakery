@@ -1,0 +1,35 @@
+body {
+    background-color: #fcfbfc;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-image: url("noon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.5;
+    position: relative;
+  }
+  #start-button {
+    background: linear-gradient(to right, #0da108, #77f303);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 1px solid rgb(89, 151, 18);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+  #start-button:hover {
+    color: #000;
+  }
